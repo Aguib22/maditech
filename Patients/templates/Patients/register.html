@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inscription</title>
+</head>
+<body>
+    <h1>inscription</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+        
+        <div>
+            <label for="prenom">Prenom</label>
+            <input id="prenom" type="text" name="prenom">
+        </div>
+        <div>
+            <label for="nom">Nom </label>
+            <input id="nom" type="text" name="nom">
+        </div>
+        <div>
+            <label for="genge">Genre</label>
+            <input id="username" type="text" name="genre">
+        </div>
+        <div>
+            <label for="tel">Telephone</label>
+            <input id="username" type="text" name="tel">
+        </div>
+        <div>
+            <label for="email">E-mail</label>
+            <input id="email" type="email" name="email">
+        </div>
+        <div>
+            <label for="adresse">Adresse</label>
+            <input id="username" type="text" name="adresse">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password">
+        </div>
+
+        <button type="submit">s'inscrire</button>
+    </form>
+</body>
+</html>
