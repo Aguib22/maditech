@@ -7,6 +7,7 @@ import random as rd
 # Create your models here.
 
 class Patient(models.Model):
+    user = models.ForeignKey(Utilisateur, on_delete = models.CASCADE)
     nom = models.CharField(max_length = 32)
     prenom = models.CharField(max_length = 32)
     genre = models.CharField(max_length = 9)
@@ -16,6 +17,7 @@ class Patient(models.Model):
     adresse = models.CharField(max_length = 30)
     password = models.CharField(max_length=32 )
     identifiant = models.CharField(max_length = 30)
+    date_enrgistrement = models.DateField(auto_now = True)
 
     def __str__(self):
 
@@ -24,13 +26,17 @@ class Patient(models.Model):
     
 
 class Rendezvous(models.Model):
-
-    date_rdv = models.DateTimeField()
+    status = [
+        ("confirmé","confirmé"),
+        ("en attente","en attente"),
+        ("annulé","annulé")
+    ]
+    date_rdv = models.DateField()
     heure_rdv = models.TimeField()
-    sujet_rdv = models.CharField(max_length = 128,blank= True,null = True)
+    sujet_rdv = models.TextField(blank= True,null = True)
     patient = models.ForeignKey(Utilisateur,on_delete = models.CASCADE)
     personnel = models.ForeignKey(Personnel,on_delete = models.CASCADE)
-    status = models.BooleanField(default = False)
+    status_rdv = models.CharField(max_length = 32,choices = status, default = "en attente")
 
 
 class TypeAnalyse(models.Model):

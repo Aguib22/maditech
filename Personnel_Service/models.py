@@ -4,16 +4,16 @@ import random as rd
 
 # Create your models here.
 class User(BaseUserManager):
-    def create_user(self,username,email,password=None,**kwargs):
-        user=self.model(email=email,username=username, **kwargs)
+    def create_user(self,email,password=None,**kwargs):
+        user=self.model(email=email ,**kwargs)
         user.set_password(password)
         user.save()
         return user
     
-    def create_superuser(self,username,email,password=None,**kwargs):
+    def create_superuser(self,email,password=None,**kwargs):
         kwargs.setdefault("is_staff",True)
         kwargs.setdefault("is_superuser",True)
-        return self.create_user(username,email,password,**kwargs)
+        return self.create_user(email,password,**kwargs)
     
 class Utilisateur(AbstractBaseUser,PermissionsMixin):
     username = models.CharField(max_length = 32)
@@ -38,6 +38,7 @@ class Fonction(models.Model):
 
 
 class Personnel(models.Model):
+    user = models.ForeignKey(Utilisateur, on_delete = models.CASCADE)
     nom=models.CharField(max_length=32)
     prenom=models.CharField(max_length=32)
     genre=models.CharField(max_length=9)
@@ -45,23 +46,11 @@ class Personnel(models.Model):
     email=models.EmailField(unique=True)
     fonction=models.ForeignKey(Fonction,on_delete = models.CASCADE)
     image=models.ImageField( upload_to='profil_personnel/', height_field=None, width_field=None, max_length=None,blank=True)
-    identifiant = models.CharField(max_length = 32,unique= True)
-    is_active=models.BooleanField(default=True)
-    is_staff=models.BooleanField(default=False)
-
+    identifiant = models.CharField(max_length = 30)
+    
     def __str__(self):
 
         return f"{self.nom} {self.prenom}"
-
-    def genere_identifiant(self):
-        return f"{self.nom}{self.prenom}{rd.randint(1,999)}"
-    
-
-    def save(self,*args,**kwargs):
-        if not self.identifiant:
-            self.identifiant = self.genere_identifiant()
-        super().save(*args,**kwargs)
-    
     
 
 

@@ -31,6 +31,7 @@ class ProduitMedicaux(models.Model):
     date_enreg = models.DateTimeField()
     date_exp = models.DateTimeField()
     quantite = models.IntegerField()
+    prix_unitaire = models.IntegerField()
 
 
 

@@ -20,17 +20,19 @@ def signup_user(request):
        password = request.POST.get('password')
        identifiant = f"{nom}{prenom}{rd.randint(1,999)}"
        
-       patient = Patient(identifiant = identifiant,
+       
+       user= Utilisateur.objects.create_user(username= identifiant, password=password,email=email,nom = nom,prenom = prenom)
+
+       patient = Patient(user = user, identifiant = identifiant,
                         nom = nom,
                          prenom = prenom,
                          genre = genre,
                          telephone = tel,
-                         email = email,
+                         
                          adresse = adresse,
-                         password = password)
+                         )
        patient.save()
 
-       user= Utilisateur.objects.create_user(username= identifiant, password=password,email=email)
        login(request,user)
 
        return redirect('login')
@@ -46,10 +48,11 @@ def login_user(request):
         if user:
             login(request,user)
             return redirect('home')
-    return render(request,'Patients/login.html')
+    return render(request,'Patients/pages-login.html')
         
 
 
 def logout_user(request):
     logout(request)
     return redirect('login')
+

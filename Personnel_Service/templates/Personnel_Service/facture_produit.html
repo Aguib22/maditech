@@ -1,0 +1,38 @@
+<!-- facturation_produits.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturation des Produits</title>
+</head>
+<body>
+    <h2>Facturation des Produits</h2>
+    <h3>Ordonnance du Patient</h3>
+    <p><strong>Patient:</strong> {{ consultation.patient }}</p>
+    <p><strong>Poids:</strong> {{ consultation.poids }}</p>
+    <p><strong>Température:</strong> {{ consultation.temperature }}</p>
+    <!-- Affichez d'autres détails de la consultation ici -->
+
+    <h3>Produits Prescrits:</h3>
+    <form method="post">
+        {% csrf_token %}
+        <ul>
+            {% for produit in produits_prescrits %}
+            <li>{{ produit.nom_produit }} - {{ produit.prix_unitaire }} FCFA</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Ajouter des Produits:</h3>
+        <ul>
+            {% for produit in produits_stock %}
+            <li>
+                <input type="checkbox" name="produits" value="{{ produit.id }}"> {{ produit.nom_produit }} - {{ produit.prix_unitaire }} FCFA
+            </li>
+            {% endfor %}
+        </ul>
+
+        <input type="submit" value="Facturer">
+    </form>
+</body>
+</html>

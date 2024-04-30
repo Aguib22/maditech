@@ -1,0 +1,22 @@
+<!-- selection_patient.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sélection du Patient</title>
+</head>
+<body>
+    <h2>Liste des Patients</h2>
+    <ul>
+        {% for patient in patients %}
+        <li>
+            {{ patient.nom }} {{ patient.prenom }}
+            <form action="{% url 'facturation_produits' patient.id %}" method="get" style="display: inline;">
+                <button type="submit">Gérer</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
