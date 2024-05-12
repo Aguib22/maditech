@@ -1,0 +1,106 @@
+{% load static %} {% include "Personnel_Service/headers.html" %} ======= Services Section =======
+<section id="services" class="services services">
+    <div class="container" data-aos="fade-up">
+            <h2>service</h2>
+
+        <div class="section-title">
+            <h2>Services</h2>
+            <p>Bienvenue sur notre page de service hospitalier, où le bien-être de nos patients est notre priorité absolue. Nous sommes dévoués à fournir des soins de qualité avec compassion et expertise. N'hésitez pas à explorer nos services et à nous contacter
+                pour toute assistance supplémentaire.</p>
+        </div>
+
+        <div class="row">
+            {% for service in services %}
+            
+           
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon"><a href="{% url 'detail_service' service.id %}"><img src="{{ service.image.url }} " alt=""></a> </div>
+                <h4 class="title">
+                    <a href="{% url 'detail_service' service.id %}">{{ service.nom_service }}</a></h4>
+                <p class="description ">
+                    <h6>{{ service.description|truncatewords:5 }}</h6>
+                </p>
+            </div>
+
+            {% endfor %}
+            {% comment %} <div class="col-lg-4 col-md-6 icon-box " data-aos="zoom-in " data-aos-delay="200 ">
+                <div class="icon ">
+                    <img src=" {% static 'Personnel_Service/assets/img/neurologie2.jpeg' %} " alt="">class="fas fa-pills ">
+                    </i>
+                </div>
+                <h4 class="title "><a href="{% url 'neurologie'  %} ">NEUROLOGIE</a></h4>
+                <p class="description ">
+
+                    <h6>Découvrez notre service de neurologie spécialisé</h6>
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-6 icon-box " data-aos="zoom-in " data-aos-delay="300 ">
+                <div class="icon ">
+                    <img src=" {% static 'Personnel_Service/assets/img/nimg/c6.jpg' %} " alt="">class="fas fa-hospital-user ">
+                    </i>
+                </div>
+                <h4 class="title "><a href=" {% url 'chirurgie'  %}">CHIRURGIE</a></h4>
+                <p class="description ">
+                    <h6>Découvrez notre service de chirurgie de pointe</h6>
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-6 icon-box " data-aos="zoom-in " data-aos-delay="100 ">
+                <div class="icon "><img src=" {% static 'Personnel_Service/assets/img/nimg/l1.png' %} " alt=""> class="fas fa-dna "></i>
+                </div>
+                <h4 class="title "><a href="{% url 'laboratoire'  %} ">Labo</a></h4>
+                <p class="description ">
+                    <h6> Découvrez notre service de pédiatrie dédié à la santé et au bien-être de vos enfants</h6>
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-6 icon-box " data-aos="zoom-in " data-aos-delay="200 ">
+                <div class="icon "><img src=" {% static 'Personnel_Service/assets/img/radiologie(3).jpg' %} " alt=""> class="fas fa-wheelchair "></i>
+                </div>
+                <h4 class="title "><a href=" {% url 'radiologie'  %}">RADIOLOGIE</a></h4>
+                <p class="description ">
+                    <h6>Découvrez notre service de radiologie avancée</h6>
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-6 icon-box " data-aos="zoom-in " data-aos-delay="300 ">
+                <div class="icon "><img src=" {% static 'Personnel_Service/assets/img/nimg/d4.jpg' %} " alt=""> class="fas fa-notes-medical "></i>
+                </div>
+                <h4 class="title "><a href="{% url 'dermatologie'  %} ">DERMATOLOGIE</a></h4>
+                <p class="description ">
+                    <h6>Découvrez notre service de dermatologie de premier plan</h6>
+                </p>
+            </div>
+
+            <div class="col-lg-4 col-md-6 icon-box " data-aos="zoom-in " data-aos-delay="100 ">
+                <div class="icon "><img src=" {% static 'Personnel_Service/assets/img/nimg/p1.jpg' %} " alt=""> class="fas fa-dna "></i>
+                </div>
+                <h4 class="title "><a href="{% url 'pediatrie'  %} ">PEDIATRIE</a></h4>
+                <p class="description ">
+                    <h6> Découvrez notre service de pédiatrie dédié à la santé et au bien-être de vos enfants</h6>
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-6 icon-box " data-aos="zoom-in " data-aos-delay="200 ">
+                <div class="icon "><img src=" {% static 'Personnel_Service/assets/img/nimg/j1.jpg' %} " alt=""> class="fas fa-wheelchair "></i>
+                </div>
+                <h4 class="title "><a href=" {% url 'gynecologie'  %}">gynécologie</a></h4>
+                <p class="description ">
+                    <h6>Découvrez notre service de gynécologie avancée</h6>
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-6 icon-box " data-aos="zoom-in " data-aos-delay="300 ">
+                <div class="icon "><img src=" {% static 'Personnel_Service/assets/img/nimg/o2.jpg' %} " alt=""> class="fas fa-notes-medical "></i>
+                </div>
+                <h4 class="title "><a href="{% url 'orthopedie'  %} ">d'orthopédie</a></h4>
+                <p class="description ">
+                    <h6>Découvrez notre service d'orthopédie de premier plan</h6>
+                </p>
+            </div> {% endcomment %}
+
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+{% include "Personnel_Service/footers.html " %}m

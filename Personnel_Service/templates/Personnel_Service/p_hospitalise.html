@@ -1,0 +1,72 @@
+{% load static %}
+
+{% include "Personnel_Service/header_pers.html" %}
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Data Tables</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'espace_personnel' %}">Home</a></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active">Data</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+                <p>sur cette liste il tous les patients qui ont étés hospitalisés au seins de <b>meditech</b> cliquer sur le bouton <strong>detaille</strong> pour voir les détailles d'hopitalisation</p>
+              <!-- Table with stripped rows -->
+              <table class="table datatable">
+                <legend class="text-center" style="font-weight: bold;">Liste des Patients hostpiatisés</legend>
+                <thead>
+                    <tr class="bg-success">
+                      <th>
+                        <b>I</b>dentifant
+                      </th>
+                      <th>Nom et Prenom</th>
+                      <th>hebergement</th>
+                      <th data-type="date" data-format="YYYY/DD/MM">Date sortie</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                <tbody>
+                    {% for patient in patient_hospitalise  %}
+                    <tr>
+                    <th scope="row"><a href="#">{{ patient.patient.identifiant }}</a></th>
+                    <td>{{ patient.patient.nom }} {{ patient.patient.prenom }}</td>
+                    <td><a href="#" class="text-primary">{{ lit.num_sall }}{{ patient.num_lit }}</a></td>
+                    <td>{{ patient.date_fin }}</td>
+                    <td><a href="{% url 'det_hosp' patient.id %}" class="btn btn-success">detaille</td>
+                    </tr>
+                {% endfor %}
+                  
+                 
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  {% include "Personnel_Service/footer_personnel.html" %}
+
+
+
+
+
+                

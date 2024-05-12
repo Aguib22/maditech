@@ -1,0 +1,54 @@
+{% load static %} {% include "Personnel_Service/headers.html" %}
+
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+
+
+    <div class="container " data-aos="fade-up">
+
+        <div class="section-title ">
+            <div>
+                <a href="#">
+                    <h2 class="mt-5 pt-5">
+                        {{ service.nom_service }}
+                    </h2>
+                </a>
+            </div>
+            <p style="margin-top: 35px;">Grâce à l'introduction de nouvelles technologies 
+                médicales de pointe, l'hôpital a renforcé sa capacité à diagnostiquer
+                 et à traiter efficacement un large éventail de conditions médicales.
+                 De plus, le personnel médical a été reconnu pour son engagement exceptionnel envers l'excellence clinique et le bien-être des patients, contribuant ainsi à des taux de guérison impressionnants. Par ailleurs ,l'hôpital a récemment lancé des programmes de sensibilisation communautaire visant à promouvoir la santé préventive et à renforcer les liens avec la population locale. Ces initiatives soulignent l'engagement continu de l'hôpital envers l' amélioration constante de la qualité
+                 des soins et le bien-être de la communauté qu'il sert.. !!!</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6" data-aos="fade-right">
+            <img src="{{ service.image.url }}" class="img-fluid" alt="">
+               
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
+                <p>
+                    {{ service.description }}
+                </p>
+                {% comment %} <ul>
+                    <li><i class="bi bi-check-circle"></i> la recherche.</li>
+                    <li><i class="bi bi-check-circle"></i> la technologie.</li>
+                    <li><i class="bi bi-check-circle"></i> l'éducation médicale.</li>
+                </ul> {% endcomment %}
+
+
+            </div>
+            
+            
+        </div>
+
+
+    </div>
+</section>
+<!-- End About Us Section -->
+
+
+
+
+
+{% include "Personnel_Service/footers.html " %}

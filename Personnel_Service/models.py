@@ -3,31 +3,40 @@ from django.contrib.auth.models import BaseUserManager,AbstractBaseUser, Permiss
 import random as rd
 
 # Create your models here.
-class User(BaseUserManager):
-    def create_user(self,email,password=None,**kwargs):
-        user=self.model(email=email ,**kwargs)
+class ClubUserManager(BaseUserManager):
+    def create_user(self, username, password=None, **kwargs):
+        user = self.model(username=username, **kwargs)
         user.set_password(password)
         user.save()
         return user
-    
-    def create_superuser(self,email,password=None,**kwargs):
-        kwargs.setdefault("is_staff",True)
-        kwargs.setdefault("is_superuser",True)
-        return self.create_user(email,password,**kwargs)
+
+    def create_superuser(self, username, password=None, **kwargs):
+        kwargs.setdefault('is_staff', True)
+        kwargs.setdefault('is_superuser', True)
+ 
+        if kwargs.get('is_staff') is not True:
+            raise ValueError('Superuser must have is_staff=True.')
+        if kwargs.get('is_superuser') is not True:
+            raise ValueError('Superuser must have is_superuser=True.')
+
+        return self.create_user(username, password, **kwargs)
     
 class Utilisateur(AbstractBaseUser,PermissionsMixin):
-    username = models.CharField(max_length = 32)
+    username = models.CharField(max_length = 32,unique=True)
     nom=models.CharField(max_length=32,blank=True)
     prenom=models.CharField(max_length=50,blank=True)
-    email = models.EmailField(unique = True)
+    email = models.EmailField(blank=True,null=True,unique = True)
     is_active=models.BooleanField(default=True)
     is_staff=models.BooleanField(default=False)
+    is_personnel = models.BooleanField(default = False)
+
+    USERNAME_FIELD = 'username'
+
+    objects = ClubUserManager()
     
-    USERNAME_FIELD="email"
-    objects=User()
     def __str__(self):
 
-        return self.email
+        return self.username
 
     
 class Fonction(models.Model):
@@ -80,6 +89,8 @@ class Service(models.Model):
                 
                 
             }
+    def __str__(self):
+        return self.nom_service
 
 
 class Conge(models.Model):

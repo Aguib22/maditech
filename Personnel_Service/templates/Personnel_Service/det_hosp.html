@@ -1,0 +1,121 @@
+{% load static %}
+
+{% include "Personnel_Service/header_pers.html" %}
+
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Profile</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Users</li>
+          <li class="breadcrumb-item active">Profile</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+    <style>
+      .rounded-circle {
+        width: 240px; /* Choisissez la taille qui convient à vos besoins */
+        height: 140px; /* Choisissez la taille qui convient à vos besoins */
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+    }
+    </style>
+    <section class="section profile">
+      <div class="row justify-content-center">
+        
+
+        <div class="col-xl-10">
+
+          <div class="card">
+            <div class="card-body pt-3">
+              <!-- Bordered Tabs -->
+              
+              <div class="tab-content pt-2">
+
+                <div class="tab-pane fade show active profile-overview row d-flex" id="profile-overview">
+                  
+                    <h5 class="card-title">Service d'Hospitalisation</h5>
+                    <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. 
+                      Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</p><hr>
+                    <div class="row d-flex col-lg-6 col-md-12">
+                      <h5 class="card-title">Reseignement du patient</h5>
+    
+                      <div class="row">
+                        <div class="col-lg-4 col-md-4 label" style="font-weight:bold;font-size:16px">Nom et Prenom</div>
+                        <div class="col-lg-8 col-md-8" style="font-weight:bold;font-size:16px">{{ hosp.patient.nom }} {{ hosp.patient.prenom }}</div>
+                      </div>
+    
+                      <div class="row">
+                        <div class="col-lg-4 col-md-4 label" style="font-weight:bold;font-size:16px">Genre</div>
+                        <div class="col-lg-8 col-md-8" style="font-weight:bold;font-size:16px">{{ hosp.patient.genre }}</div>
+                      </div>
+    
+                      <div class="row">
+                        <div class="col-lg-4 col-md-4 label"style="font-weight:bold;font-size:16px">Adresse</div>
+                        <div class="col-lg-8 col-md-8" style="font-weight:bold;font-size:16px">{{ hosp.patient.adresse }}</div>
+                      </div>
+    
+                      <div class="row">
+                        <div class="col-lg-4 col-md-4 label " style="font-weight:bold;font-size:16px">Telephone</div>
+                        <div class="col-lg-8 col-md-8" style="font-weight:bold;font-size:16px">{{ hosp.patient.telephone }}</div>
+                      </div>
+  
+                  </div>
+
+                  <div class="row d-flex col-lg-6 col-md-12">
+                      <h5 class="card-title">hospitalisé au</h5>
+    
+                      <div class="row">
+                        <div class="col-lg-4 col-md-4 label" style="font-weight:bold;font-size:16px">Service</div>
+                        <div class="col-lg-8 col-md-8" style="font-weight:bold;font-size:16px">{{ hosp.service.nom_service }}</div>
+                      </div>
+    
+                      <div class="row">
+                        <div class="col-lg-4 col-md-4 label" style="font-weight:bold;font-size:16px">Salle</div>
+                        <div class="col-lg-8 col-md-8" style="font-weight:bold;font-size:16px">{{ hosp.num_lit.num_sall }}</div>
+                      </div>
+    
+                      <div class="row">
+                        <div class="col-lg-4 col-md-4 label"style="font-weight:bold;font-size:16px">Lit</div>
+                        <div class="col-lg-8 col-md-8" style="font-weight:bold;font-size:16px">{{ hosp.num_lit }}</div>
+                      </div>
+    
+                      <div class="row">
+                        <div class="col-lg-4 col-md-4 label " style="font-weight:bold;font-size:16px">Motif</div>
+                        <div class="col-lg-8 col-md-8" style="font-weight:bold;font-size:16px">{{ hosp.motif }}</div>
+                      </div>
+  
+                  </div>
+
+                  </div>
+                  <hr>
+                  <div class = "row d-flex col-12 profile-overview justify-content-center">
+                    <div class="row col-6">
+                      <div class="col-lg-4 col-md-4 label" style="font-weight:bold;font-size:16px">Date d'entré</div>
+                      <div class="col-lg-8 col-md-8" style="font-weight:bold;font-size:16px">{{ hosp.date_debut }}</div>
+                    </div>
+  
+                    <div class="row col-6">
+                      <div class="col-lg-4 col-md-4 label" style="font-weight:bold;font-size:16px">Date de sortie</div>
+                      <div class="col-lg-8 col-md-8" style="font-weight:bold;font-size:16px">{{ hosp.date_fin }}</div>
+                    </div>
+                  </div>
+                </div>
+                
+
+              </div><!-- End Bordered Tabs -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+ {% include "Personnel_Service/footer_personnel.html" %}

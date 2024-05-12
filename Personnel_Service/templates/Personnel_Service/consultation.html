@@ -1,0 +1,161 @@
+{% load static %}
+
+{% include "Personnel_Service/header_pers.html" %}
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Form Elements</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Gestion patient</li>
+          <li class="breadcrumb-item active">Consultation</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Remplissez le formaulaire </h5>
+
+              <!-- Multi Columns Form -->
+              <form class="row g-3 " method ="post">
+                {% csrf_token %}
+                <div class="col-6 m-3 text-center d-flex">
+                  <label for="patient" class="form-label">donner l'identifiant du patient</label>
+                  <input type="text" name="patient" class="form-control">
+                </div>
+
+                <div class ="row d-flex">
+                  <div class="col-lg-6">
+                    <div class="col-lg-6 mb-3 col-md-4 d-flex">
+                      <label for="age" class="form-label " style="margin-right:20px">Age:</label>
+                      <input type="text" name="age" class="form-control " id="inputAddres5s" ><span class="m-1"> an(s)</span>
+                    </div>
+                    <div class="col-lg-6 mb-3 col-md-4 d-flex">
+                      <label for="temp" class="form-label"style="margin-right:20px">Température:</label>
+                      <input type="text" name="temp" class="form-control" id="inputName5"><span class="m-1">°c</span>
+                    </div>
+                    <div class="col-lg-6 mb-3 col-md-4 d-flex">
+                      <label for="poids" class="form-label" style="margin-right:20px">Poids:</label>
+                      <input type="text" name="poids" class="form-control" id="inputEmail5"><span class="m-1"> kg</span>
+                    </div>
+                    <div class="col-lg-6 mb-3 col-md-4 d-flex">
+                      <label for="taille" class="form-label" style="margin-right:20px">Taille:</label>
+                      <input type="text" name="taille" class="form-control " id="inputEmail5"><span class="m-1"> m</span>
+                    </div>
+                    <div class="col-lg-6 mb-3 col-md-4 d-flex">
+                      <label for="tension" class="form-label" style="margin-right:20px">Tension:</label>
+                      <input type="text" name="tension" class="form-control" id="inputPassword5" placeholder="">
+                    </div>
+                  </div>
+                  
+                <div class="col-lg-6 " >
+                  <div class="col-md-8">
+                    <label for="plainte" class="form-label">Plainte du patient</label>
+                    <textarea name="plainte"  class="form-control" ></textarea>
+                  </div>
+
+                  <div class="col-md-8">
+                    <label for="diagnostic" class="form-label">diagnostic</label>
+                    <textarea name="diagnostic"  class="form-control" ></textarea>
+                  </div>
+                  <div class="col-md-8">
+                    <label for="examen" class="form-label">examen recommandé</label>
+                    <input type="text" name="examen" class="form-control" id="inputPassword5" placeholder="">
+
+                  </div>                 
+                  
+                </div>
+                <div class="col-md-8">
+                  <label for="prescription" class="form-label">Prescription</label>
+                  <textarea name="prescription"  class="form-control" ></textarea>
+                </div>
+                
+                  <div class="text-center m-2">
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    
+                  </div>
+                </form><!-- End Multi Columns Form -->
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+      
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+      
+                  <!-- Table with stripped rows -->
+                  <table class="table datatable">
+                    <legend class="text-center" style="font-weight: bold;">Liste des Patients</legend>
+                    <thead>
+                      <tr class="bg-success">
+                        <th>
+                          <b>I</b>dentifant
+                        </th>
+                        <th>Nom et Prenom</th>
+                        <th>Sexe</th>
+                        <th>Téléphone</th>
+                        
+                        <th data-type="date" data-format="YYYY/DD/MM">Date d'enrgistrement</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for patient in patients  %}
+                      <tr>
+                        <td>{{ patient.identifiant }}</td>
+                        <td>{{ patient.nom }} {{ patient.prenom }}</td>
+                        <td>{{ patient.genre }}</td>
+                        <td>{{ patient.telephone }}</td>
+                        <td>{{ patient.date_enrgistrement }}</td>
+                      </tr>
+                      {% endfor %}
+                      
+                     
+                    </tbody>
+                  </table>
+                  <!-- End Table with stripped rows -->
+      
+                </div>
+              </div>
+      
+            </div>
+          </div>
+
+                {% comment %} <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Multi Select</label>
+                  <div class="col-sm-10">
+                    <select class="form-select" multiple aria-label="multiple select example">
+                      <option selected>Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                </div> {% endcomment %}
+
+                
+
+              
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+        
+    </section>
+
+  </main><!-- End #main -->
+
+ {% include "Personnel_Service/footer_personnel.html" %}

@@ -39,17 +39,30 @@ class ReservationAdmin(admin.ModelAdmin):
         self.message_user(request, "Les rendez-vous sélectionnés ont été annulés avec succès.")
     annuler_reservation.short_description = "Annuler les rendez-vous sélectionnés"
 
+class AdminPatient(admin.ModelAdmin):
+    list_display =('identifiant','nom','prenom','genre','telephone','adresse')
+    search_fields = ('identifiant','nom','prenom','genre','telephone','adresse')
+    
+class AdminExamen(admin.ModelAdmin):
+    list_display =('patient','type_analyse','resultat_examen','tarif','laborantain','date')
+    search_fields = ('patient','type_analyse','resultat_examen','tarif','laborantain','date')
+
+class AdminHospitalisation(admin.ModelAdmin):
+    list_display =('patient','num_lit','service','date_debut','date_fin','motif')
+    search_fields = ('patient','num_lit','service','date_debut','date_fin','motif')
+
+class AdminConsultation(admin.ModelAdmin):
+    list_display =('patient','age','taille','poid','personnel','date_consultation')
+    search_fields = ('patient','age','taille','poid','personnel','date_consultation')
 
 
-
-
-admin.site.register(Patient)
+admin.site.register(Patient,AdminPatient)
 admin.site.register(Rendezvous, ReservationAdmin)
 admin.site.register(TypeAnalyse)
-admin.site.register(Examen)
+admin.site.register(Examen,AdminExamen)
 admin.site.register(Satisfaction)
 admin.site.register(FactureSoins)
 admin.site.register(FactureProduit)
 admin.site.register(DossierMedicaux)
-admin.site.register(Hospitalisation)
-admin.site.register(Consultation)
+admin.site.register(Hospitalisation,AdminHospitalisation)
+admin.site.register(Consultation,AdminConsultation)

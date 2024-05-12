@@ -15,9 +15,8 @@ class Patient(models.Model):
     email = models.EmailField(max_length = 32)
     profil_patient=models.ImageField(upload_to='profil_patient/', height_field=None, width_field=None, max_length=None, blank=True)
     adresse = models.CharField(max_length = 30)
-    password = models.CharField(max_length=32 )
     identifiant = models.CharField(max_length = 30)
-    date_enrgistrement = models.DateField(auto_now = True)
+    date_enrgistrement = models.DateTimeField(auto_now = True)
 
     def __str__(self):
 
@@ -41,16 +40,23 @@ class Rendezvous(models.Model):
 
 class TypeAnalyse(models.Model):
     nom_analyse = models.CharField(max_length = 32)
-    dure_analyse = models.DateTimeField()
+    dure_analyse = models.TimeField()
     prix_analyse = models.IntegerField()
 
+    def __str__(self):
+        return self.nom_analyse
 
 class Examen(models.Model):
     type_analyse = models.ForeignKey(TypeAnalyse,on_delete = models.CASCADE)
     patient = models.ForeignKey(Patient, on_delete = models.CASCADE)
     resultat_examen = models.CharField(max_length =128)
-    date_examen = models.DateTimeField()
+    date_examen = models.DateTimeField(auto_now = True)
     laborantain = models.ForeignKey(Personnel,on_delete = models.CASCADE)
+    tarif = models.IntegerField()
+    date = models.DateTimeField(auto_now = True)
+    
+    def __str__(self):
+        return f"{self.type_analyse.nom_analyse}_{self.patient.nom}"
 
 
 class Satisfaction(models.Model):
@@ -88,20 +94,22 @@ class Hospitalisation(models.Model):
     date_fin = models.DateTimeField()
     motif = models.CharField(max_length = 128)
     service = models.ForeignKey(Service , on_delete = models.CASCADE)
-
+    date_enregistrement = models.DateTimeField(auto_now=True)
 
 class Consultation(models.Model):
     patient = models.ForeignKey(Patient, on_delete = models.CASCADE)
     personnel = models.ForeignKey(Personnel, on_delete = models.CASCADE)
-    poid = models.DecimalField(max_digits = 2,decimal_places =2)
-    temperature = models.DecimalField(max_digits = 2,decimal_places =2)
-    tension = models.IntegerField()
-    age = models.IntegerField()
-    taille = models.DecimalField(max_digits = 2,decimal_places =2)
-    plainte = models.CharField(max_length = 128)
-    diagnostic = models.CharField(max_length = 128)
+    poid = models.CharField(max_length=4)
+    temperature = models.CharField(max_length=4)
+    tension = models.CharField(max_length=2)
+    age = models.CharField(max_length =4)
+    taille = models.CharField(max_length =4)
+    plainte = models.TextField()
+    diagnostic = models.TextField()
     prescription = models.CharField(max_length = 128)
-    date_consultation = models.DateTimeField()
+    date_consultation = models.DateTimeField(auto_now = True)
+    examen_recommande = models.CharField(max_length = 32,null = True,blank = True)
+    
 
 
 

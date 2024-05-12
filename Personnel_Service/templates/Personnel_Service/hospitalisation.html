@@ -1,0 +1,144 @@
+{% load static %}
+
+{% include "Personnel_Service/header_pers.html" %}
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1></h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'espace_personnel' %}">Home</a></li>
+          <li class="breadcrumb-item">gestion patient</li>
+          <li class="breadcrumb-item active">Hospitalisation</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-4">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Remplissez le formulaire</h5>
+              
+              <!-- General Form Elements -->
+              <form method ="post">
+                {% csrf_token %}
+                <div class="row mb-3">
+                  <label for="patient" class="col-sm-2 col-lg-4 col-form-label">patients</label>
+                  <div class="col-sm-10 col-lg-8">
+                    <input type="text" class="form-control" name = "patient">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Service</label>
+                  <div class="col-sm-8">
+                    <select class="form-select" aria-label="Default select example" name="service">
+                      {% for service in services %}
+                      <option value="{{ service.id }}">{{ service.nom_service }}</option>
+                      
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Lit</label>
+                  <div class="col-sm-10">
+                    <select class="form-select" aria-label="Default select example" name="lit">
+                      {% for lit in lits %}
+                      <option value="{{ lit.id }}">salle {{ lit.num_sall }} lit {{ lit.num_lit }}</option>
+                      
+                      {% endfor %}
+                      
+                    </select>
+                  </div>
+                </div>
+                
+                <div class="row mb-3">
+                  <label for="Date_debut" class="col-lg-6 col-sm-6 col-form-label">Debut Hospitalisation</label>
+                  <div class="col-lg-6 col-sm-6">
+                    <input type="date" class="form-control" name= "debut">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputTime" class="col-lg-6 col-sm-6 col-form-label">Fin Hospitalisation</label>
+                  <div class="col-lg-6 col-sm-6">
+                    <input type="date" class="form-control" name="fin">
+                  </div>
+                </div>
+
+                
+                <div class="row mb-3">
+                  <label for="inputmotif" class="col-sm-4 col-form-label">Motif</label>
+                  <div class="col-sm-8">
+                    <textarea class="form-control" style="height: 100px" name = "motif"></textarea>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-primary w-100" type="submit">enregistrer</button>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-8 col-md-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <div class="col-12">
+                <a href="{% url 'p_hosp' %}"><button class="btn btn-primary w-100" >voir l'historique des hospitalisations</button></a>
+              </div>
+              <!-- Table with stripped rows -->
+              <table class="table datatable">
+                <legend class="text-center" style="font-weight: bold;">selectionner le patient concerné</legend>
+                <thead>
+                  <tr class="bg-success">
+                    <th>
+                      <b>I</b>dentifant
+                    </th>
+                    <th>Nom et Prenom</th>
+                    <th>Sexe</th>
+                    <th>Téléphone</th>
+                    
+                    <th data-type="date" data-format="YYYY/DD/MM">Date d'enrgistrement</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for patient in liste_patients  %}
+                  <tr>
+                    <td>{{ patient.identifiant }}</td>
+                    <td>{{ patient.nom }} {{ patient.prenom }}</td>
+                    <td>{{ patient.genre }}</td>
+                    <td>{{ patient.telephone }}</td>
+                    <td>{{ patient.date_enrgistrement }}</td>
+                  </tr>
+                  {% endfor %}
+                  
+                 
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+  
+            </div>
+          </div>
+  
+        </div>
+
+        
+      </div>
+    </section>
+    <div class="row">
+      
+    </div>
+
+  </main><!-- End #main -->
+
+  {% include "Personnel_Service/footer_personnel.html" %}

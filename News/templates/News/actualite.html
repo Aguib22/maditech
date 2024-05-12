@@ -1,0 +1,145 @@
+{% load static %} {% include "Personnel_Service/headers.html" %}
+
+<!-- ======= Pricing Section ======= -->
+<a href="">
+    <h2>Bienvenue Dans Notre Page D'actualité</h2>
+</a>
+<section id="pricing" class="pricing">
+
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+
+            <a href="">
+                <h2>Bienvenue Dans Notre Page D'actualité</h2>
+            </a>
+            <p>Nous sommes fiers d'annoncer l'ouverture de notre nouvelle aile dédiée aux soins pédiatriques,offrant des installations modernes et un personnel hautement qualifié pourprendre soin de nos jeunes patients. Restez connectés pour plus de mises
+                à jour sur nos initiatives en cours et les événements à venir !!!!
+            </p>
+        </div>
+
+        <a href="#" style="text-align: center; color: #0cd6d6;" class="mt-5 mb-5">
+            <h2>Actualité Plus Recente</h2>
+        </a>
+
+        <div class="row">
+            {% for actualite in actualites  %}
+            
+            
+            <div class="col-lg-3 col-md-6">
+
+                <div class="box" data-aos="fade-up" data-aos-delay="100">
+                    <h3>{{ actualite.titre }}</h3>
+                    <a href="{% url 'detail_actu' actualite.id %}">
+                        <img class="div_img" src="{{ actualite.image.url }}" alt=" " style="max-width:200px;
+                        max-height:200px;min-height:200px;min-width:200px;">
+                        <h3 class="mt-4">
+                        </h3>
+                        <p>{{ actualite.contenu|truncatewords:4 }}</p>
+                        <div class="btn-wrap">
+                            <a href="{% url 'detail_actu' actualite.id %}" class="btn-buy">Voir Plus</a>
+                        </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% comment %} <div class="col-lg-3 col-md-6">
+                <div class="box" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Cardioligie</h3>
+                    <a href="{% url 'actualite2' %}">
+                        <img class="div_img" src="{% static 'Personnel_Service/assets/img/nimg/ca3.png' %} " alt=" " style="max-width:200px;
+                        max-height:200px;min-height:200px;min-width:200px;">
+                        <h3 class="mt-4">
+                            description
+                        </h3>
+                        <p>Veuillez saisir la description de l'actualité</p>
+                        <div class="btn-wrap">
+                            <a href="{% url 'actualite2' %}" class="btn-buy">Voir Plus</a>
+                        </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="box" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Labo</h3>
+                    <a href="{% url 'actualite3' %}">
+                        <img class="div_img" src="{% static 'Personnel_Service/assets/img/nimg/l3.jpg' %}  " alt=" " style="max-width:200px;
+                        max-height:200px;min-height:200px;min-width:200px;">
+                        <h3 class="mt-4">
+                        description
+                    </h3>
+                    <p>Veuillez saisir la description de l'actualité</p>
+                    <div class="btn-wrap">
+                        <a href="{% url 'actualite3' %}" class="btn-buy">Voir Plus</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="box" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Pédiatrie</h3>
+                    <a href="{% url 'actualite4' %}">
+                        <img class="div_img" src="{% static 'Personnel_Service/assets/img/nimg/p3.jpg' %} " alt=" " style="max-width:200px;
+                        max-height:200px;min-height:200px;min-width:200px;">
+                        
+                    <h3 class="mt-4">
+                        description
+                    </h3>
+                    <p>Veuillez saisir la description de l'actualité</p>
+                    <div class="btn-wrap">
+                        <a href="{% url 'actualite4' %}" class="btn-buy">Voir Plus</a>
+                    </div>
+                </div>
+            </div> {% endcomment %}
+
+        </div>
+
+    </div>
+
+
+</section>
+
+<!-- ======= Gallery Section ======= -->
+<section id="gallery" class="gallery">
+    <div class="mt-2" style="text-align: center;color: rgb(36, 233, 233);">
+        <a href="{% url 'actualite' %}">
+            <h2>Actualité Moyen Recente</h2>
+        </a>
+    </div>
+    <div class="container" data-aos="fade-up">
+
+        <div class="gallery-slider swiper">
+            <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                    <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-1.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-1.jpg' %}" class="img-fluid" alt=""></a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-2.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-2.jpg' %}" class="img-fluid" alt=""></a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-3.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-3.jpg' %}" class="img-fluid" alt=""></a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-4.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-4.jpg' %}" class="img-fluid" alt=""></a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-5.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-5.jpg' %}" class="img-fluid" alt=""></a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-6.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-6.jpg' %}" class="img-fluid" alt=""></a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-7.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-7.jpg' %}" class="img-fluid" alt=""></a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-8.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-8.jpg' %}" class="img-fluid" alt=""></a>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+</section>
+<!-- End Gallery Section -->
+<!-- End Pricing Section -->
+
+{% include "Personnel_Service/footers.html" %}

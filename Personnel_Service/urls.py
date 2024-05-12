@@ -23,11 +23,32 @@ from Personnel_Service.views import *
 urlpatterns = [
     path('',home,name='home'),
     path('rendez-vous/',make_appointement,name= 'rendez-vous'),
+    path('service/',service,name='service'),
+    path('apropos/',apropos,name='apropos'),
+    path('contact/',contact,name='contact'),
+    path('service/<int:id>',detail_service,name="detail_service"),
     path('liste/',liste_patient,name ='liste_patient'),
+    #***************** personnel *****************************
     path('espace_personnel/',espace_personnel,name="espace_personnel"),
     path('listePatients/',listePatients,name ='listePatient'),
     path('user_profile/',userProfile,name = 'user_profile'),
+    path('registers/',enregistrerPersonnel,name = 'registers'),
+    path('pers_login/',login_personnel,name = 'connexion'),
+    path('logout_personnel/',logout_personnel,name = 'logout_personnel'),
+    #**********************patients********************************
+    path('save_patient/',enregistrer_patient,name = 'save_patient'),
+    path('consultation/',consultation,name ="consultation"),
+    path('examen_labo/',examen, name ="examen_labo"),
+    path('hospitalisation/', hospitalisation, name ='hospitalisation'),
+    path('patients hospitalisés/', P_hospitalise, name ='p_hosp'),
+    path('hosp/<int:id>/', detail_hospitalisation, name ='det_hosp'),
+    
+
+    
+    
     path('facturation/<int:patient_id>/', facturation_produits, name='facturation_produits'),
+    #********************** idrissa *************************
+    
     
 
     

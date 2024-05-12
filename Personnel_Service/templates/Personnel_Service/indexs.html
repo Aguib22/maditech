@@ -1,0 +1,781 @@
+{% load static %} 
+{% include "Personnel_Service/headers.html" %}
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active" style="background-image: url({% static 'Personnel_Service/assets/img/slide/slide-1.jpg' %})">
+                <div class="container">
+                    <h2>Bienvenue à <span>Medi_Tech</span></h2>
+                    <p>Ensemble construisons un partenariat de soins basé sur la confiance,la transparence et la communication ouverte,Votre santé,notre engagement .. Notre engagement envers votre santé et votre bien-être guide chaque décision que nous prenons..
+                    </p>
+                    <p>Dans chaque patient, il y a un individu qui mérite le respect, la dignité et la meilleure qualité de soins !!!</p>
+                    <a href="{% url 'login' %}" class="btn-get-started scrollto">Patient</a>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item" style="background-image: url({% static 'Personnel_Service/assets/img/slide/slide-2.jpg' %})">
+                <div class="container">
+                    <h2>Bienvenue à <span>Medi_Tech</span></h2>
+                    <p>Notre équipe dévouée est là pour vous offrir des soins de qualité et un soutien personnalisé à chaque étape de votre parcours de santé .. Le plus grand don que vous puissiez offrir à quelqu'un,c'est votre temps, votre attention,votre
+                        amour et vos soins !!!
+                    </p>
+                    <a href="{% url 'login' %}" class="btn-get-started scrollto">Patient</a>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item" style="background-image: url({% static 'Personnel_Service/assets/img/slide/slide-3.jpg' %})">
+                <div class="container">
+                    <h2>Bienvenue à <span>Medi_Tech</span></h2>
+                    <p>La santé est un état de complet bien-être physique,mental et social, et non pas seulement l'absence de maladie !!!
+                    </p>
+                    <a href="{% url 'login' %}" class="btn-get-started scrollto">Patient</a>
+                </div>
+            </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+    </div>
+</section>
+<!-- End Hero -->
+
+<main id="main">
+
+    <!-- ======= Featured Services Section ======= 
+    <section id="featured-services" class="featured-services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="fas fa-heartbeat"></i></div>
+              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon"><i class="fas fa-pills"></i></div>
+              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon"><i class="fas fa-thermometer"></i></div>
+              <h4 class="title"><a href="">Magni Dolores</a></h4>
+              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+              <div class="icon"><i class="fas fa-dna"></i></div>
+              <h4 class="title"><a href="">Nemo Enim</a></h4>
+              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section> End Featured Services Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <!-- <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="text-center">
+          <h3>In an emergency? Need help now?</h3>
+          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <a class="cta-btn scrollto" href="#appointment">Prendre Rendez-Vous</a>
+        </div>
+
+      </div>
+    </section>End Cta Section -->
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>
+                    A propos de Nous
+                </h2>
+                <p class="paragraphe">
+                    Cet hôpital moderne représente un vériable pôle d'excellence médicale, où l'expertise des professionnels de santé se conjugue avec les avancées technologiques pour offrir des soins de qualité supérieure, centrés sur le patient et sa guérison .Un lieu
+                    où l'humanité, la science et l'innovation se rejoignent pour relever les défis de la santé du XXIe siècle.
+                </p>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="{% static 'Personnel_Service/assets/img/nimg/h2.jpg' %}" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
+                    <!-- <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p> -->
+                    <!-- <ul>
+              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+            </ul> -->
+                    <p class="paragraphe">
+                        Au coeur de la ville se dresse un hopital moderne , un veritable sanctuaire de la santé. Ses lignes épurées et son architecture futuriste témoignent de sa vocation d'offrir des soins de qualités dans un environnement apaisant et technologiquement avancé
+                    </p>
+                    <p class="paragraphe">
+                        Dès que l'on franchit ses portes , on est accueilli par une équipe de professionnels dévoués et bienveillants , prêts à prodiguer des soins de qualités et attentifs. Les coulooirs sont lumineux ornés de jardins intérieurs qui offrent un environnenment
+                        sereinn et apaisé.
+                    </p>
+                    <p class="paragraphe">
+                        Les salles de soins sont équipées des dernières avancées médicales et des technologies les plus pointures, permettant aux médecins et aux infirmiers de fournir des diagnostics rapides et précis, ainsi que des traitements efficaces.
+
+                    </p>
+
+                </div>
+            </div>
+
+
+            <button class="btn" style="margin-top: 5%;">
+        <a href="{% url 'apropos'%} ">Savoir Plus</a>
+
+        </button>
+
+
+
+
+        </div>
+    </section>
+    <!-- End About Us Section -->
+
+
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>
+                    Nos Statistiques
+                </h2>
+            </div>
+
+            <div class="row no-gutters">
+
+                <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
+                    <div class="count-box">
+                        <i class="fas fa-user-md"></i>
+                        <span data-purecounter-start="0" data-purecounter-end="{{ nombre_personnel }}" data-purecounter-duration="1" class="purecounter"></span>
+
+                        <p><strong>DOCTEURS</strong> Constantez les statistiques dans notre hôpital</p>
+                        <a href="{% url 'apropos' %}">Voir Plus &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
+                    <div class="count-box">
+                        <i class="far fa-hospital"></i>
+                        <span data-purecounter-start="0" data-purecounter-end="{{ nombre_service }}" data-purecounter-duration="1" class="purecounter"></span>
+                        <p><strong>SERVICES</strong> Constantez les statistiques de nos services dans notre hôpital </p>
+                        <a href="{% url 'service' %}">Voir Plus &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
+                    <div class="count-box">
+                        <i class="fas fa-flask"></i>
+                        <span data-purecounter-start="0" data-purecounter-end="{{ nombre_patient }}" data-purecounter-duration="1" class="purecounter"></span>
+                        <p><strong>PATIENT</strong> Constantez les statistiques de nos patients dans notre hôpital</p>
+                        <a href="{% url 'home' %}">Savoir Plus &raquo;</a>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End Counts Section -->
+
+    <!-- ======= Features Section ======= 
+    <section id="features" class="features">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right">
+            <div class="icon-box mt-5 mt-lg-0">
+              <i class="bx bx-receipt"></i>
+              <h4>Est labore ad</h4>
+              <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+            </div>
+            <div class="icon-box mt-5">
+              <i class="bx bx-cube-alt"></i>
+              <h4>Harum esse qui</h4>
+              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+            </div>
+            <div class="icon-box mt-5">
+              <i class="bx bx-images"></i>
+              <h4>Aut occaecati</h4>
+              <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+            </div>
+            <div class="icon-box mt-5">
+              <i class="bx bx-shield"></i>
+              <h4>Beatae veritatis</h4>
+              <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+            </div>
+          </div>
+          <div class="image col-lg-6 order-1 order-lg-2" style='background-image: url("assets/img/features.jpg");' data-aos="zoom-in"></div>
+        </div>
+
+      </div>
+    </section>  End Features Section -->
+
+
+    <!-- ======= Appointment Section =========
+    <section id="appointment" class="appointment section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Make an Appointment</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <form action="forms/appointment.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-md-4 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 form-group mt-3">
+              <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" required>
+            </div>
+            <div class="col-md-4 form-group mt-3">
+              <select name="department" id="department" class="form-select">
+                <option value="">Select Department</option>
+                <option value="Department 1">Department 1</option>
+                <option value="Department 2">Department 2</option>
+                <option value="Department 3">Department 3</option>
+              </select>
+            </div>
+            <div class="col-md-4 form-group mt-3">
+              <select name="doctor" id="doctor" class="form-select">
+                <option value="">Select Doctor</option>
+                <option value="Doctor 1">Doctor 1</option>
+                <option value="Doctor 2">Doctor 2</option>
+                <option value="Doctor 3">Doctor 3</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+          </div>
+          <div class="my-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
+          </div>
+          <div class="text-center"><button type="submit">Make an Appointment</button></div>
+        </form>
+
+      </div>
+    </section> End Appointment Section -->
+
+
+
+
+    <!-- ======= Departments Section ======= -->
+    <!-- <section id="departments" class="departments">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>
+                    Nos Services
+                </h2>
+                <p class="paragraphe">
+                    Découvrez les services de pointe offerts par notre hôpital,où la santé et le bien-être de nos patients sont notre priorité absalue. Notre département de neurologie est spécialisé dans le traitement des troubles du système nerveux,offrant des soins personnalisées
+                    pour chaque patient.La cardiologie est une autre de nos spécialisés avec une équipe d'experts dévoués pour prendre en charge les maladies cardiaques et promouvoir la santé cardiovasculaire. En chirurgie ,nos chirurgiens hautement qualifiés
+                    utilisent les dernières technologies pour assurer des interventions sûres et efficaces. De plus, notre service de pédiatrie propose des soins adaptés aux plus jeunes,avec une équipe médicale spécialisée dans le traitement des enfants.
+                    Notre hôpital offre également des services de gynécologie, d'orthopédie,de dermatologie et bien d'autres spécialisés médicales pour répondre à tous vos besoins de santé. Que vous ayez besoin d'une consulation ,d'un traitement médical
+                    ou d'une intervention chirurgicale,notre équipe compétente et attentionnée est là pour vous accompagner à chaque étape de votre parcours de soins. Faites confiance à notre expertise et à notre dévouement pour vous offrir des services
+                    de santé de qualité, axés sur votre bien-être et votre rétablissement. CONTACTEZ-NOUS dès aujourd'hui pour prendre rendez-vous ou pour en savoir de plus sur nos services et nos spécialisés.Votre santé est notre priorité,et nous sommes
+                    là pour vous offrir les meilleures soins possibles dans un environnement sûr et accueillant
+                </p>
+
+
+            </div>
+
+            <div class="row" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+
+                    <ul class="nav nav-tabs flex-column">
+                        {% for service in services %}
+
+                        <li class="nav-item">
+                            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
+                                <h4>{{ service.nom_service }}</h4>
+                                <p>{{ service.description }}</p>
+                            </a>
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+                <div class="col-lg-8">
+                    {% for service in services %}
+
+
+                    <div class="tab-content">
+                        <div class="tab-pane active show" id="tab-1">
+                            <h3>{{ service.nom_service }}</h3>
+                            <p class="fst-italic">{{ service.description }}</p>
+                            <img src="{{ service.image.url }}" alt="" class="img-fluid">
+                            <p>{{ service.description }}</p>
+                        </div>
+                        {% endfor %}
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <center class="btn">
+                    <a href="{% url 'service'%}" class="btn-get-started scrollto">Savoir Plus</a>
+
+                </center>
+            </div>
+
+        </div>
+    </section> -->
+    <!-- End Departments Section -->
+
+    <!-- essayage pour voir comment sa fonctionne -->
+    <!-- ======= Departments Section ======= -->
+    <section id="departments" class="departments">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Nos Services</h2>
+
+            </div>
+
+            <div class="row" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <ul class="nav nav-tabs flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
+                                <h4>Cardiologie</h4>
+                                <p>
+                                    Découvrez notre de service de cardiologie avec des soins moderne
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item mt-2">
+                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
+                                <h4>Neurologie</h4>
+                                <p>
+                                    Découvrez notre de service de neurologie avec des soins de qualité
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item mt-2">
+                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
+                                <h4>Chirurgie</h4>
+                                <p>
+                                    Découvrez notre de service de chirurgie avec du personnel expérimenté
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item mt-2">
+                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
+                                <h4>Pédiatrie</h4>
+                                <p>
+                                    Découvrez notre de service de pédiatrie avec des soins moderne
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-8">
+                    <div class="tab-content">
+                        <div class="tab-pane active show" id="tab-1">
+                            <h3>Cardiologie</h3>
+                            <p class="fst-italic">
+
+                                Que vous ayez besoin d'un suivi régulier pour une condition cardiaque existante ou que vous recherchiez des conseils sur la prévention des maladies cardiaques, notre équipe est là pour vous fournir des soins personnalisés et adaptés à vos besoins individuels.
+                                Nous travaillons en étroite collaboration avec nos patients pour développer des plans de traitement personnalisés et les aider à atteindre leurs objectifs de santé cardiovasculaire.
+
+                            </p>
+                            <img src="{% static 'Personnel_Service/assets/img/departments-1.jpg' %}" alt="" class="img-fluid">
+                            <p>
+                                Chez <strong>Medi_Tech</strong>: nous sommes fiers d'offrir des services de cardiologie de classe mondiale pour aider nos patients à maintenir un cœur en bonne santé. Prenez rendez-vous dès aujourd'hui pour une consultation
+                                avec l'un de nos cardiologues et prenez le premier pas vers une vie avec un cœur en bonne santé!" </p>
+                        </div>
+                        <div class="tab-pane" id="tab-2">
+                            <h3>Neurologie</h3>
+                            <p class="fst-italic">
+
+                                Que vous recherchiez un traitement pour une condition neurologique existante ou que vous ayez besoin d'une évaluation neurologique approfondie, notre équipe est là pour vous aider à retrouver une meilleure qualité de vie. Prenez rendez-vous dès aujourd'hui
+                                pour une consultation avec l'un de nos neurologues et prenez le premier pas vers une santé neurologique optimale!"
+
+                            </p>
+                            <img src="{% static 'Personnel_Service/assets/img/departments-2.jpg' %}" alt="" class="img-fluid">
+                            <p>
+                                Chez <strong>Medi_Tech</strong>: nous sommes fiers d'offrir des services de neurologie de classe mondiale pour aider nos patients à maintenir une tête en bonne santé. Prenez rendez-vous dès aujourd'hui pour une consultation
+                                avec l'un de nos neurologue et prenez le premier pas vers une vie avec la tête en bonne santé!"
+                            </p>
+                        </div>
+                        <div class="tab-pane" id="tab-3">
+                            <h3>Chirurgie</h3>
+                            <p class="fst-italic">
+
+                                Que ce soit pour une intervention chirurgicale majeure ou mineure, nous sommes là pour offrir des solutions personnalisées et des soins de haute qualité à nos patients. Notre équipe chirurgicale utilise les techniques les plus avancées et les technologies
+                                les plus récentes pour assurer les meilleurs résultats possibles pour nos patients.
+
+                            </p>
+                            <img src="{% static 'Personnel_Service/assets/img/departments-3.jpg' %}" alt="" class="img-fluid">
+
+
+                            <p>
+                                Nous comprenons que la décision de subir une chirurgie peut être intimidante, c'est pourquoi nous nous engageons à vous soutenir à chaque étape du processus. De la consultation initiale à la récupération post-opératoire, notre équipe est là pour répondre
+                                à vos questions, atténuer vos inquiétudes et vous offrir le soutien dont vous avez besoin pour une expérience chirurgicale positive.
+                            </p>
+
+                        </div>
+                        <div class="tab-pane" id="tab-4">
+                            <h3>Pédiatrie</h3>
+                            <p class="fst-italic">
+                                Nous comprenons à quel point il est important de choisir des professionnels de confiance pour la santé de vos enfants, c'est pourquoi nous nous engageons à offrir des soins de qualité supérieure dans un environnement accueillant et sécurisé. Que votre
+                                enfant ait besoin d'un simple examen de routine, de soins pour une maladie infantile courante, de vaccinations essentielles ou de suivi pour des problèmes de croissance et de développement, notre équipe est là pour vous
+                                soutenir à chaque étape du chemin.
+                            </p>
+                            <img src="{% static 'Personnel_Service/assets/img/departments-4.jpg' %}" alt="" class="img-fluid">
+                            <p>
+
+                                Nous croyons fermement en une approche holistique de la pédiatrie, qui prend en compte non seulement les besoins médicaux de l'enfant, mais aussi son bien-être émotionnel et son développement global. Nos pédiatres travaillent en étroite collaboration
+                                avec les familles pour fournir des soins personnalisés et adaptés aux besoins individuels de chaque enfant.
+                            </p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- End Departments Section -->
+    <!-- fin essaie -->
+
+   
+    <!-- essaie sur les témoignage -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Temoignage</h2>
+
+
+                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+
+                    {% for temoignage in temoignages %}
+
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> 
+                                    {{ temoignage.contenu }}
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+                                <img src="{{ temoignage.patient.profil_patient.url }}" class="testimonial-img" alt="">
+                            <h3>{{ temoignage.patient.nom }} </h3>
+                               
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                        <!-- End testimonial item -->
+
+
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+    </section>
+    <!-- End Testimonials Section -->
+    <!-- fin essaie -->
+
+
+    <!-- ======= Doctors Section ======= -->
+    <section id="doctors" class="doctors section-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Doctors</h2>
+                <p class="paragraphe">
+                    Nos médécins , sous la direction de leur chef de service exemplaire, sont véritablement des experts dans leur domaine. Leur dévouement envers leurs patients et leur engagement envers l'excellence médicale sont remarquables. Le chef de service, en particulier,
+                    se distingue par sa vaste expérience, sa vision avant-gardiste et son leadership inspirant. Ses reconnues par ses pairs, et sa capacité à résoudre des cas médicaux complexes est tout simplement impressionnante. Grâce à son leadership
+                    éclairé, l'équipe de médecins collabore de manière harmonieuse et efficace, assurant des soins de santé de premier ordre à chaque patient. Chaque membre de l'équipe médicale apporte une contribution précieuse, démontrant un haut niveau
+                    de professionnalisme et de compassion. Leur engagement envers l'amélioration continue et l'innovation médicale se reflète dans les résultats exceptionnels obtenus pour les patients. Les patients se sentent en sécurité et entre de bonnes
+                    mains sous les soins de ces médécins dévoués, qui font preuve d'une attention personnalisée et d'une approche holistique de la médecine. Nos médécins, dirigés par leur chef de service exceptionnel,incarnet les plus hautes normes de
+                    compétence,d'empathie et de dévouement dans le domaine médical. leur travail a un impact positif durable sur la santé et le bien-être de nos patients. faisant de cet l'hôpital un lieu d'excellence médicale reconnu et respecté.
+                </p>
+
+            </div>
+
+            <div class="row">
+                {% for liste_information in liste_informations %}
+
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="member" data-aos="fade-up" data-aos-delay="100">
+                        <div class="member-img">
+                            <img src="{{ liste_information.image.url }}" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href=""><i class="bi bi-twitter"></i></a>
+                                <a href=""><i class="bi bi-facebook"></i></a>
+                                <a href=""><i class="bi bi-instagram"></i></a>
+                                <a href=""><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>{{ liste_information.nom }} {{ liste_information.prenom }} </h4>
+                            <span>{{ liste_information.fonction }} </span>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+
+
+
+
+
+            </div>
+            <div class="container">
+                <center class="btn">
+                    <a href="{% url 'apropos'%}" class="btn-get-started scrollto">Savoir Plus</a>
+
+                </center>
+            </div>
+        </div>
+    </section>
+    <!-- End Doctors Section -->
+
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Gallery</h2>
+                <p class="paragraphe">
+                    Notre gallérie avec un espace magnifique et apaisant,offrant une ambiance chaleureuse aux patients et visiteurs. Les oeuves d'art exposées dans la galérie ajoutent une touche de beauté et de réconfort à l'environnement hospitalier.les couloirs ornés de
+                    tableaux et de sculptures créent une atmosphère accueillante et inspirante pour tous ceux qui passent par là, C'est un aussi espace de beauté et de créativité qui souligne l'engagement de l'hôpital envers le bien-être global de ses
+                    patients. Notre gallérie est bien plus qu'un simple espace décoratif,c'est un lieu de réconfort, d'inspiration et de guérison pour tous ceux qui franchissent nos portes !!!!
+                </p>
+            </div>
+
+            <div class="gallery-slider swiper">
+                <div class="swiper-wrapper align-items-center">
+                    <div class="swiper-slide">
+                        <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-1.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-1.jpg' %}" class="img-fluid" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-2.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-2.jpg' %}" class="img-fluid" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-3.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-3.jpg' %}" class="img-fluid" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-4.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-4.jpg' %}" class="img-fluid" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-5.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-5.jpg' %}" class="img-fluid" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-6.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-6.jpg' %}" class="img-fluid" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-7.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-7.jpg' %}" class="img-fluid" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="gallery-lightbox" href="{% static 'Personnel_Service/assets/img/gallery/gallery-8.jpg' %}"><img src="{% static 'Personnel_Service/assets/img/gallery/gallery-8.jpg' %}" class="img-fluid" alt=""></a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="container">
+                <div class="btn">
+                    <a href="{% url 'apropos' %}" class="btn-get-started scrollto">Savoir Plus</a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- End Gallery Section -->
+
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Actualités</h2>
+                <p class="paragraphe">
+                    Grâce à l'introduction de nouvelles technologies médicales de pointe, l'hôpital a renforcé sa capacité à diagnostiquer et à traiter efficacement un large éventail de conditions médicales. De plus, le personnel médical a été reconnu pour son engagement
+                    exceptionnel envers l'excellence clinique et le bien-être des patients, contribuant ainsi à des taux de guérison impressionnants. Par ailleurs ,l'hôpital a récemment lancé des programmes de sensibilisation communautaire visant à promouvoir
+                    la santé préventive et à renforcer les liens avec la population locale. Ces initiatives soulignent l'engagement continu de l'hôpital envers l' amélioration constante de la qualité des soins et le bien-être de la communauté qu'il sert..
+                    !!!
+            </div>
+
+            <div class="row">
+
+               {% for actualite in actualites %}
+
+
+
+             <div class="col-lg-3 col-md-6">
+                <div class="box" data-aos="fade-up" data-aos-delay="100">
+                    <h3>{{actualite.titre}}</h3>
+                    <a href="{% url 'detail_actu' actualite.id  %}">
+                        <img class="div_img w-100 img-fluid" src="{{ actualite.image.url}}" alt=" " style="
+                        ">
+                        
+                        <p>{{ actualite.contenu}}</p>
+                        <div class="btn-wrap">
+                            <a href="{% url 'detail_actu' actualite.id %}" class="btn-buy">Voir plus</a>
+                        </div>
+                </div>
+            </div>
+             {% endfor %}
+            <div class="container">
+                <div class="btn">
+                    <a href="{% url 'actualite' %}" class="btn-get-started scrollto">Savoir Plus</a>
+
+                </div>
+            </div>
+           
+               
+              
+
+
+            </div>
+
+             
+        </div>
+    </section>
+    <!-- End Pricing Section -->
+
+    <!-- ======= Frequently Asked Questioins Section =======
+    <section id="faq" class="faq section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Frequently Asked Questioins</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <ul class="faq-list">
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq6" class="collapsed question">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq6" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+              </p>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </section> End Frequently Asked Questioins Section -->
+
+
+
+</main>
+<!-- End #main -->
+
+{% include 'Personnel_Service/footers.html' %}
