@@ -203,7 +203,7 @@
 
                 <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
                     <div class="count-box">
-                        <i class="fas fa-flask"></i>
+                        <i class="bi bi-people"></i>
                         <span data-purecounter-start="0" data-purecounter-end="{{ nombre_patient }}" data-purecounter-duration="1" class="purecounter"></span>
                         <p><strong>PATIENT</strong> Constantez les statistiques de nos patients dans notre hôpital</p>
                         <a href="{% url 'home' %}">Savoir Plus &raquo;</a>
@@ -678,7 +678,7 @@
                         <img class="div_img w-100 img-fluid" src="{{ actualite.image.url}}" alt=" " style="
                         ">
                         
-                        <p>{{ actualite.contenu}}</p>
+                        <p>{{ actualite.contenu|truncatewords:5 }}</p>
                         <div class="btn-wrap">
                             <a href="{% url 'detail_actu' actualite.id %}" class="btn-buy">Voir plus</a>
                         </div>

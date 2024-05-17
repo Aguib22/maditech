@@ -38,7 +38,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="{% url 'espace_personnel' %}" class="logo d-flex align-items-center">
+      <a href="{% url 'home' %}" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">MediTech</span>
       </a>
@@ -65,88 +65,58 @@
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-bell"></i>
-            <span class="badge bg-primary badge-number">4</span>
+            <span class="badge bg-primary badge-number">{{ nbr_rdvA }}</span>
           </a><!-- End Notification Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
             <li class="dropdown-header">
-              You have 4 new notifications
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+              Vous avez {{ nbr_rdvA }} nouvelle(s) notification(s)
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2"></span></a>
             </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+            {% for notif in rdv_enAttente  %}
+              <li>
+                <hr class="dropdown-divider">
+              </li>
 
-            <li class="notification-item">
-              <i class="bi bi-exclamation-circle text-warning"></i>
-              <div>
-                <h4>Lorem Ipsum</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>30 min. ago</p>
-              </div>
-            </li>
+              <li class="notification-item" data-bs-toggle="modal" data-bs-target="#disablebackdrop"
+              data-rdv-id="{{ notif.id }}"
+              data-full-name="{{ notif.full_name }}"
+              data-sujet-rdv="{{ notif.sujet_rdv }}"
+              data-date-rdv="{{ notif.date_rdv }}"
+              data-heure-rdv="{{ notif.heure_rdv }}">
+                <a href="#" class="notification-item" >
+                  <i class="bi bi-exclamation-circle text-warning"></i>
+                  <div>
+                    <h4>{{ notif.full_name }}</h4>
+                    <p>demende un Rendez-vous: {{ notif.sujet_rdv|truncatewords:3 }}</p>
+                    <p></p>
+                  </div>
+                </a>
+              </li>
+              
+            {% endfor %}
 
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-x-circle text-danger"></i>
-              <div>
-                <h4>Atque rerum nesciunt</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>1 hr. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-check-circle text-success"></i>
-              <div>
-                <h4>Sit rerum fuga</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>2 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-info-circle text-primary"></i>
-              <div>
-                <h4>Dicta reprehenderit</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>4 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="dropdown-footer">
-              <a href="#">Show all notifications</a>
+            
+            <li class="dropdown-footer" data-bs-toggle="modal" data-bs-target="#modalDialogScrollable">
+              <a href="#">historique de notification</a>
             </li>
 
           </ul><!-- End Notification Dropdown Items -->
+          
 
         </li><!-- End Notification Nav -->
-
+        
         <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-chat-left-text"></i>
-            <span class="badge bg-success badge-number">3</span>
+            <span class="badge bg-success badge-number">2</span>
           </a><!-- End Messages Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
             <li class="dropdown-header">
-              You have 3 new messages
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+              Vous avez 2 nouveau messages
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2"></span></a>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -154,11 +124,11 @@
 
             <li class="message-item">
               <a href="#">
-                <img src="{% static 'Personnel_Service/assets/img/messages-1.jpg' %}" alt="" class="rounded-circle">
+                <img src="" alt="" class="rounded-circle">
                 <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
+                  <h4>Patient Patient</h4>
+                  <p>Bonjour Dr Idrissa je vous demende la dose de mes medicaments</p>
+                  <p>il y a 15min</p>
                 </div>
               </a>
             </li>
@@ -168,11 +138,11 @@
 
             <li class="message-item">
               <a href="#">
-                <img src="{% static 'Patients/assets/img/messages-2.jpg' %}" alt="" class="rounded-circle">
+                <img src="" alt="" class="rounded-circle">
                 <div>
-                  <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>6 hrs. ago</p>
+                  <h4>soumah salif</h4>
+                  <p>Merci doctor pour vos conseils</p>
+                  <p>il y a 39min</p>
                 </div>
               </a>
             </li>
@@ -180,22 +150,13 @@
               <hr class="dropdown-divider">
             </li>
 
-            <li class="message-item">
-              <a href="#">
-                <img src="{% static 'Patients/assets/img/messages-3.jpg' %}" alt="" class="rounded-circle">
-                <div>
-                  <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
+            
             <li>
               <hr class="dropdown-divider">
             </li>
 
             <li class="dropdown-footer">
-              <a href="#">Show all messages</a>
+              <a href="#">Voir tous</a>
             </li>
 
           </ul><!-- End Messages Dropdown Items -->
@@ -240,22 +201,12 @@
               <hr class="dropdown-divider">
             </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
+            
             <li>
               <hr class="dropdown-divider">
             </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
+           
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -263,7 +214,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="{% url 'connexion' %}">
                 <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
+                <span>se deconnecter</span>
               </a>
             </li>
 
@@ -274,6 +225,66 @@
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
+    
+  <div class="modal fade" id="disablebackdrop" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Demande de Rendez-vous</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h4 id="modal-full-name"></h4>
+                    <p id="modal-sujet-rdv"></p>
+                    <p>Date: <span id="modal-date-rdv"></span></p>
+                    <p>Heure: <span id="modal-heure-rdv"></span></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <form id="confirm-form" method="post" action="{% url 'update_rdv_status' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="rdv_id" id="confirm-rdv-id">
+                    <input type="hidden" name="action" value="confirmer">
+                    <button type="submit" class="btn btn-primary">Confirmer</button>
+                </form>
+                <form id="cancel-form" method="post" action="{% url 'update_rdv_status' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="rdv_id" id="cancel-rdv-id">
+                    <input type="hidden" name="action" value="annuler">
+                    <button type="submit" class="btn btn-danger">Annuler</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalDialogScrollable" tabindex="-1">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal Dialog Scrollable</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {% for notif in historique_notif %}
+          <div>
+              <p> {{ notif.full_name }}</p>
+              <p>Date: {{ notif.date_rdv }}</p>
+              <p>Heure: {{ notif.heure_rdv }}</p>
+              <p>Sujet: {{ notif.sujet_rdv }}</p>
+              <p>Status du Rdv: <span >{{ notif.status_rdv }}</span></p>
+              
+          </div>
+          <hr>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
 
@@ -282,7 +293,7 @@
           <li class="nav-item">
             <a class="nav-link " href="{% url 'espace_personnel' %}">
               <i class="bi bi-grid"></i>
-              <span>Dashboard</span>
+              <span>Home</span>
             </a>
           </li><!-- End Dashboard Nav -->
     
@@ -403,17 +414,12 @@
     
           <!-- End Contact Page Nav -->
     
-          <li class="nav-item">
-            <a class="nav-link collapsed" href="{% url 'registers' %}">
-              <i class="bi bi-card-list"></i>
-              <span>Register</span>
-            </a>
-          </li><!-- End Register Page Nav -->
+          <!-- End Register Page Nav -->
     
           <li class="nav-item">
             <a class="nav-link collapsed" href="{% url 'connexion' %}">
               <i class="bi bi-box-arrow-in-right"></i>
-              <span>Login</span>
+              <span>se deconnecter</span>
             </a>
           </li><!-- End Login Page Nav -->
     
@@ -423,3 +429,29 @@
         </ul>
     
       </aside><!-- End Sidebar-->
+
+      <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const notificationItems = document.querySelectorAll('.notification-item');
+    
+            notificationItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const rdvId = this.getAttribute('data-rdv-id');
+                    const fullName = this.getAttribute('data-full-name');
+                    const sujetRdv = this.getAttribute('data-sujet-rdv');
+                    const dateRdv = this.getAttribute('data-date-rdv');
+                    const heureRdv = this.getAttribute('data-heure-rdv');
+    
+                    document.getElementById('modal-full-name').innerText = fullName;
+                    document.getElementById('modal-sujet-rdv').innerText = 'Demande un Rendez-vous: ' + sujetRdv;
+                    document.getElementById('modal-date-rdv').innerText = dateRdv;
+                    document.getElementById('modal-heure-rdv').innerText = heureRdv;
+                    document.getElementById('confirm-rdv-id').value = rdvId;
+                    document.getElementById('cancel-rdv-id').value = rdvId;
+                });
+            });
+        });
+    </script>
+    
+    
+    

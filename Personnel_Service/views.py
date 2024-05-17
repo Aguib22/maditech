@@ -1,4 +1,7 @@
+import json
 from django.shortcuts import redirect, render
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 from datetime import datetime
 from django.utils import timezone
 from django.http import HttpResponse
@@ -60,7 +63,9 @@ def make_appointement(request):
     }
     if request.method == 'POST':
         doctor_id = request.POST.get('doctor')
-        patient = request.user
+        full_name = request.POST.get('full_name')
+        email = request.POST.get('email')
+        telephone = request.POST.get('tel')
         date_str = request.POST.get('date')
         time_str = request.POST.get('time')
         subjet = request.POST.get('subjet')
@@ -83,10 +88,12 @@ def make_appointement(request):
         else:
         
         # Créer le rendez-vous
-            appointment = Rendezvous.objects.create(personnel=doctor, patient=patient, date_rdv=date, heure_rdv=time,sujet_rdv= subjet)
+            appointment = Rendezvous.objects.create(personnel=doctor, full_name=full_name, 
+                                                    email=email,telephone=telephone,
+                                                    date_rdv=date, heure_rdv=time,sujet_rdv= subjet)
             appointment.save()
         
-            return redirect('home')  # Redirige vers la page de confirmation du rendez-vous
+            return redirect('confirm_rdv')  # Redirige vers la page de confirmation du rendez-vous
     
     error_messages = messages.get_messages(request)
     context['error_messages'] = error_messages
@@ -169,7 +176,9 @@ def login_personnel(request):
             
     return render(request,'Personnel_Service/pages-login.html')
         
-
+def confirm_rdv(request):
+    
+    return render (request,'Personnel_Service/confirm_rdv.html')
 
 def logout_personnel(request):
     logout(request)
@@ -225,19 +234,46 @@ def facturation_produits(request, patient_id):
 
 login_required(login_url='/connexion')
 def espace_personnel(request):
+    user = request.user
     nombre_personnel=Personnel.objects.count()
     nombre_service=Service.objects.count()
     nombre_patient=Patient.objects.count()
+    personnel = Personnel.objects.get(user=user)
+    
+    
+    
     context ={
         'nombre_personnel':nombre_personnel,
         'nombre_service':nombre_service,
-        'nombre_patient':nombre_patient
+        'nombre_patient':nombre_patient,
+    
+        
     }
     if request.user.is_personnel:
-    
         return render(request,'Personnel_Service/index_Personnel.html',context)
     else:
         return render(request,'Personnel_Service/page-error.html')
+ 
+
+"""
+def notif_RDV(request,id):
+    rdv = Rendezvous.objects.get(pk=id)
+    
+    return render(request,'Personnel_Service/detai_rdv.html',{'rdv':rdv})
+    
+       
+confirmer rdv
+def confirm_appointment(request, id):
+    appointment = Rendezvous.objects.get(pk=id)
+    appointment.confirm_appointment()
+    return redirect('espace_personnel')
+# Annuler rdv
+def cancel_appointment(request, id):
+    appointment = Rendezvous.objects.get(pk=id)
+    appointment.cancel_appointment()
+    return redirect('espace_personnel')
+"""    
+
     
 def listePatients(request):
     liste_patients = Patient.objects.all()
@@ -273,20 +309,24 @@ def userProfile(request):
 
         
     personnel = Personnel.objects.get(user=user)
+    
     context = {
-        'personnel':personnel
+        'personnel':personnel,
+        
     }
     return render (request, 'Personnel_Service/users-profile.html',context)
 
 # ************* gestion du Patient ***************************
 
 def enregistrer_patient(request):
-   liste_patients = Patient.objects.order_by("-date_enrgistrement")
+   
+    liste_patients = Patient.objects.order_by("-date_enrgistrement")
     
-   context = {
-        'liste_patients':liste_patients
+    context = {
+        'liste_patients':liste_patients,
+        
     }
-   if request.method == "POST":
+    if request.method == "POST":
        
        prenom = request.POST.get('prenom')
        nom = request.POST.get('nom')
@@ -312,13 +352,18 @@ def enregistrer_patient(request):
        patient.save()
 
     
-   return render(request, 'Personnel_Service/enregistrer_patient.html',context)
+    return render(request, 'Personnel_Service/enregistrer_patient.html',context)
 
 
 def consultation(request):
     patients = Patient.objects.all().order_by("-date_enrgistrement")
+    pers= request.user
+    personnel= Personnel.objects.get(user=pers)
+    
+    
     context= {
         'patients':patients,
+        
     }
 
     if request.method == 'POST':
@@ -346,9 +391,13 @@ def consultation(request):
 def examen(request):
     analyses = TypeAnalyse.objects.all()
     patients = Patient.objects.all().order_by("-date_enrgistrement")
+    pers= request.user
+    personnel= Personnel.objects.get(user=pers)
+    
     context = {
         'analyses':analyses,
         'patients':patients,
+        
     }
     if request.method == 'POST':
         personnel = request.user
@@ -372,10 +421,14 @@ def hospitalisation(request):
     liste_patients = Patient.objects.order_by("-date_enrgistrement")
     lits = Lit.objects.filter(statut_lit="libre")
     services = Service.objects.all()
+    
+    
+    
     context= {
         'lits':lits,
         'services':services,
-        'liste_patients':liste_patients   
+        'liste_patients':liste_patients,
+         
     }
     if request.method == "POST":
         patient_id = request.POST.get('patient')
@@ -405,18 +458,44 @@ def hospitalisation(request):
     return render(request, 'Personnel_Service/hospitalisation.html',context)
 
 def P_hospitalise(request):
+   
     patient_hospitalise = Hospitalisation.objects.all().order_by("-date_enregistrement")
     context={
-        'patient_hospitalise':patient_hospitalise
+        'patient_hospitalise':patient_hospitalise,
+        
     }
     return render(request,'Personnel_Service/p_hospitalise.html',context)
 
 def detail_hospitalisation(request,id):
+   
     hosp = Hospitalisation.objects.get(pk=id)
+    context={
+        'hosp':hosp,
+        
+    }
     
-    return render(request,'Personnel_Service/det_hosp.html',{'hosp':hosp})
+    return render(request,'Personnel_Service/det_hosp.html',context)
 
 
 
+
+@csrf_exempt
+def update_rdv_status(request):
+    if request.method == 'POST':
+        rdv_id = request.POST.get('rdv_id')
+        action = request.POST.get('action')
+
+        try:
+            rdv = Rendezvous.objects.get(id=rdv_id)
+            if action == 'confirmer':
+                rdv.status_rdv = 'confirmé'
+            elif action == 'annuler':
+                rdv.status_rdv = 'annulé'
+            rdv.save()
+            return redirect('espace_personnel')
+        except Rendezvous.DoesNotExist:
+            return JsonResponse({'success': False, 'error': 'Rendez-vous non trouvé'})
+
+    
 
 

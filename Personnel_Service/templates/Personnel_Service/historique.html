@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- pending_appointments.html -->
+
+{% for notif in historique_notif %}
+<div>
+    <p> {{ notif.full_name }}</p>
+    <p>Date: {{ notif.date_rdv }}</p>
+    <p>Heure: {{ notif.heure_rdv }}</p>
+    <p>Sujet: {{ notif.sujet_rdv }}</p>
+    
+    <input type="text" value="{{ notif.status_rdv }}">
+    
+</div>
+
+{% endfor %}
+
+
+</body>
+</html>

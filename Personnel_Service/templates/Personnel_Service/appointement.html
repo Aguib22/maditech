@@ -9,42 +9,40 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Make an Appointment</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Prise de rendez-vous</h2>
+          <p>Notre équipe dévouée est là pour vous offrir des soins de qualité
+             et un soutien personnalisé à chaque étape de votre parcours de santé ..
+              Le plus grand don que vous puissiez offrir à quelqu'un,c'est votre temps,
+             votre attention,votre amour et vos soins !!!</p>
         </div>
 
         <form  method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
             {% csrf_token %}
           <div class="row">
             <div class="col-md-4 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              <input type="text" name="full_name" class="form-control" id="name" placeholder="votre nom au complet" required>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              <input type="email" class="form-control" name="email" id="email" placeholder="Votre Email" required>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" required>
+              <input type="tel" class="form-control" name="tel" id="phone" placeholder="Votre téléphone" required>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4 form-group mt-3">
-              <input type="date" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" required>
+              <input type="date" name="date" class="form-control datepicker" id="date" placeholder="Date RDV" required>
             </div>
             <div class="col-md-4 form-group mt-3">
                 
                 <input type="time" id="appointmentTime" name="time" class="form-control">
             </div>
             <div class="col-md-4 form-group mt-3">
-              <select name="department" id="department" class="form-select">
-                <option value="">Select Department</option>
-                <option value="Department 1">Department 1</option>
-                <option value="Department 2">Department 2</option>
-                <option value="Department 3">Department 3</option>
-              </select>
+              
             </div>
             <div class="col-md-4 form-group mt-3">
               <select name="doctor" id="doctor" class="form-select">
-                <option value="">Select Doctor</option>
+                <option value="">Personnel hospitalier</option>
                 {% for doctor in doctors %}
                 <option value="{{ doctor.id }}">{{ doctor.nom }} {{ doctor.prenom }}<span> ({{ doctor.fonction }})</span></option>
                  {% endfor %}
@@ -54,7 +52,7 @@
           </div>
 
           <div class="form-group mt-3">
-            <textarea class="form-control" name="subjet" rows="5" placeholder="sujet (Optional)"></textarea>
+            <textarea class="form-control" name="subjet" rows="5" placeholder="sujet (Optionel)"></textarea>
           </div>
           <div class="my-3 text-center">
            

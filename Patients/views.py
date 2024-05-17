@@ -32,6 +32,7 @@ def login_user(request):
 
         user = authenticate(username=username,password=password)
         if user:
+            
             login(request,user)
             return redirect('home_patient')
         
@@ -43,20 +44,25 @@ def logout_user(request):
     logout(request)
     return redirect('login')
 
-login_required(login_url='/login')
 def hom_patient(request):
     user = request.user
-    try:
+    
+    if not user.is_personnel:
+        patient = Patient.objects.get(user=user)
+        consultation = Consultation.objects.get(patient = patient)
         context ={
         'patient':patient,
         'consultation':consultation
         }
-        if user:
-            patient = Patient.objects.get(user=user)
-            consultation = Consultation.objects.get(patient = patient)
-            return redirect('home_patient')
-    except:
+        return render(request, 'Patients/espace_patient.html',context)
+    else:
         return render(request,'Personnel_Service/page-error.html')
+        
+    
+    
+            
+    
+    
     
     
     

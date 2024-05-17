@@ -9,139 +9,254 @@
   <title>DME | Patient</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+  <style>
+    .card-body{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        max-width: 1000px;
+        margin: auto;
+        box-shadow: 2px 2px 4px rgb(182, 172, 172);
+        
+    }
+    
+    
+    
+    .tab-content h4{
+        text-align: center;
+        font-size: 20px;
+        font-weight:500;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        text-transform: uppercase;
+    }
+    .divgreen{
+        width: 90%;
+        margin: auto;
+        height: 10px;
+        border-radius: 5px;
+        background-color:rgb(9, 185, 9);
+    }
+    
+    .divsect{
+        display: flex;
+        justify-content: space-around;
+        margin: 10px;
+    }
+    .divsect .row{
+        display: flex;
+        justify-content: space-around;
+        
+    
+    }
+    .row .label, .row .val{
+        margin: 15px;
+        
+    }
+    .row .label{
+        font-weight: 600;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+    
+    }
+    
+    .div-elem{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    }
+    
+    /*debut partie qui est en bas du 2em hr */
+    .divsect-bas{
+        display: flex;
+        justify-content: space-around;
+    }
+    .divsect-bas .div-elem .row{
+        display: flex;
+    }
+    
+    /*fin partie qui est en bas du 2em hr */
+    
+    @media screen and (max-width:950px) {
+        
+        .card-body{
+            
+            width: 90%;
+            max-width: 800px;      
+        }
+    }
+    @media screen and (max-width:770px) {
+        
+        .card-body{ 
+            width: 100%;
+            max-width:100%;      
+        }
+    }
+</style>
 </head>
+
 
 <body>
    
 
-    <div class="col-xl-10">
+        
 
-        <div class="card">
+    <div class="card">
         <div class="card-body pt-3">
             <!-- Bordered Tabs -->
             
             <div class="tab-content pt-2">
+                <h4 class="">
+                    Dossier médical
+                </h4>
+                <div class="divgreen"></div>
+                <div class="divsect left ">    
+                    <div class="div-elem">
+                        <h5 class=""></h5>
+                        <div class="row">
+                            <div class="label">
+                                Nom du patient</div>
+                            <div class="val">
+                                {{ patient.nom }} {{ patient.prenom }}
+                            </div>
+                        </div>
 
-            <div class="tab-pane fade show active profile-overview row d-flex" id="profile-overview">
-                
-                <h4 class=" text-center display-6 head text-success">Dossier médical</h4>
-                
-                <div class="row d-flex col-lg-6 col-md-12 m-2">
-                    <h5 class="card-title"></h5>
+                        <div class="row">
+                            <div class="label">
+                                Genre
+                            </div>
+                            <div class="val">
+                                {{ patient.genre }}
+                            </div>
+                        </div>
 
-                    <div class="row">
-                    <div class="col-lg-4 col-md-4 label" style="font-weight:bold;font-size:16px">Nom du patient</div>
-                    <div class="col-lg-8 col-md-8" style="font-size:16px">{{ patient.nom }} {{ patient.prenom }}</div>
+                        <div class="row">
+                            <div class="label">
+                                Adresse
+                            </div>
+                            <div class="val">
+                                {{ patient.adresse }}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="label">Telephone</div>
+                            <div class="val">
+                                {{ patient.telephone }}
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="row">
-                    <div class="col-lg-4 col-md-4 label" style="font-weight:bold;font-size:16px">Genre</div>
-                    <div class="col-lg-8 col-md-8" style="font-size:16px">{{ patient.genre }}</div>
-                    </div>
+                    <div class="div-elem">
+                        <h5 class=""></h5>
 
-                    <div class="row">
-                    <div class="col-lg-4 col-md-4 label"style="font-weight:bold;font-size:16px">Adresse</div>
-                    <div class="col-lg-8 col-md-8" style="font-size:16px">{{ patient.adresse }}</div>
-                    </div>
+                        <div class="row">
+                            <div class="label">
+                                Emaile
+                            </div>
+                            <div class="val">
+                                {{ patient.email }}
+                            </div>
+                        </div>
 
-                    <div class="row">
-                    <div class="col-lg-4 col-md-4 label " style="font-weight:bold;font-size:16px">Telephone</div>
-                    <div class="col-lg-8 col-md-8" style="font-size:16px">{{ patient.telephone }}</div>
+                        <div class="row">
+                            <div class="label">
+                                age
+                            </div>
+                            <div class="val">
+                                {{ consultation.age }} an(s)
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="label">
+                                Poids
+                            </div>
+                            <div class="val">
+                                {{ consultation.poid }} kg
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="label">
+                                Taille
+                            </div>
+                            <div class="val">
+                                {{ consultation.taille }} m
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
+            <hr>
+            <div class="divsect left ">
+                <div class="div-elem">
+                    <h5 class="">
 
-                <div class="row d-flex col-lg-6 col-md-12">
+                    </h5>
+                    <div class="row">
+                        <div class="label">
+                            Plainte du patient
+                        </div>
+                        <div class="val">
+                            {{ consultation.plainte }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="label">
+                            diagnostic
+                        </div>
+                        <div class="val">
+                            {{ consultation.diagnostic }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="label">
+                            Prescription
+                        </div>
+                        <div class="val">
+                            {{ consultation.prescription }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-elem">
                     <h5 class="card-title"></h5>
 
                     <div class="row">
-                    <div class="col-lg-4 col-md-4 label" style="font-weight:bold;font-size:16px">Emaile</div>
-                    <div class="col-lg-8 col-md-8" style="font-size:16px">{{ patient.email }}</div>
+                        <div class="label">
+                            Examen réalisé
+                        </div>
+                        <div class="val">
+                            {{ examen.type_analyse.nom_analyse }}
+                        </div>
                     </div>
 
                     <div class="row">
-                    <div class="col-lg-4 col-md-4 label" style="font-weight:bold;font-size:16px">age</div>
-                    <div class="col-lg-8 col-md-8" style="font-size:16px">{{ consultation.age }} an(s)</div>
+                        <div class="label">
+                            Resultat de l'examen
+                        </div>
+                        <div class="val">
+                            {{ examen.resultat_examen }}
+                        </div>
                     </div>
-
-                    <div class="row">
-                    <div class="col-lg-4 col-md-4 label"style="font-weight:bold;font-size:16px">Poids</div>
-                    <div class="col-lg-8 col-md-8" style="font-size:16px">{{ consultation.poid }} kg</div>
-                    </div>
-
-                    <div class="row">
-                    <div class="col-lg-4 col-md-4 label " style="font-weight:bold;font-size:16px">Taille</div>
-                    <div class="col-lg-8 col-md-8" style="font-size:16px">{{ consultation.taille }} m</div>
-                    </div>
-
                 </div>
-
-                
-                <hr>
-                
-                
+                </div>
+                <hr>   
             </div>
-
-            <div class="tab-pane fade show active profile-overview row d-flex" id="profile-overview">
-                
-                
-                <div class="row d-flex col-lg-6 col-md-12 m-2">
-                    <h5 class="card-title"></h5>
-
+            <div class="divsect-bas">  
+                <div class="div-elem">
                     <div class="">
-                    <div class="col-lg-4 col-md-4 label mb-2" style="font-weight:bold;font-size:16px">Plainte du patient</div>
-                    <div class="col-lg-8 col-md-8 mb-5" style="font-size:16px">{{ consultation.plainte }}</div>
-                    </div>
-
-                    <div class="">
-                    <div class="col-lg-4 col-md-4 label mb-2" style="font-weight:bold;font-size:16px">diagnostic</div>
-                    <div class="col-lg-8 col-md-8 mb-3" style="font-size:16px">{{ consultation.diagnostic }}</div>
-                    </div>
-
-                    <div class="">
-                    <div class="col-lg-4 col-md-4 label mb-2" style="font-weight:bold;font-size:16px">Prescription</div>
-                    <div class="col-lg-8 col-md-8 mb-3" style="font-size:16px">{{ consultation.prescription }}</div>
-                    </div>
-
-                    
-
-                </div>
-
-                <div class="row d-flex col-lg-6 col-md-12">
-                    <h5 class="card-title"></h5>
-
-                    <div class="row">
-                    <div class="col-lg-4 col-md-4 label" style="font-weight:bold;font-size:16px">Examen réalisé</div>
-                    <div class="col-lg-8 col-md-8" style="font-size:16px">{{ examen.type_analyse.nom_analyse }}</div>
-                    </div>
-
-                    <div class="row">
-                    <div class="col-lg-4 col-md-4 label" style="font-weight:bold;font-size:16px">Resultat de l'examen</div>
-                    <div class="col-lg-8 col-md-8" style="font-size:16px">{{ examen.resultat_examen }}</div>
-                    </div>
-
-                
-
-                </div>
-
-                </div>
-                <hr>
-                
-            </div>
-
-            <div class="tab-pane fade show   row d-flex foot" id="profile-overview">
-                
-                
-                <div class="row d-flex col-lg-6 col-md-12 m-2">
-                    <div class="d-flex justify-content-center py-4">
-                        <a href="index.html" class="logo d-flex align-items-center w-auto">
+                        <a href="index.html" class="">
                             <img src="Patients/assets/img/logo.png" alt="">
-                            <span class="d-none d-lg-block">MediTech</span>
-                        </a>
-
-                        
+                            <span class="">MediTech</span>
+                        </a>   
                     </div>
-                    <div class ="d-flex justify-content-center py-4">
+                    <div class ="">
                         <p>
                             A108 Hafia <br>
                             NY 572, Guinée<br><br>
@@ -149,55 +264,56 @@
                             <strong>Email:</strong> meditech@gmail.com<br>
                             </p>
                     </div>
-
                 </div>
-
-                <div class="row d-flex col-lg-6 col-md-12">
+                 
+                <div class="div-elem">
+                    <div class="row">
+                        <div class="label">
+                            Médecin
+                        </div>
+                        <div class="val">
+                            {{ consultation.personnel.nom }} {{ consultation.personnel.prenom }} 
+                        </div>
+                    </div>
                     
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 label mb-1" style="font-weight:bold;font-size:16px">Médecin</div>
-                    <div class="col-lg-8 col-md-8 " style="font-size:16px">{{ consultation.personnel.nom }} {{ consultation.personnel.prenom }} </div>
+
+                    <div class="row">
+                        <div class="label">
+                            Fonction
+                        </div>
+                        <div class="val">
+                            {{ consultation.personnel.fonction }}
+                        </div>
                     </div>
 
                     <div class="row">
-                    <div class="col-lg-4 col-md-4 mb-1 label" style="font-weight:bold;font-size:16px">Fonction</div>
-                    <div class="col-lg-8 col-md-8 mb-2" style="font-size:16px">{{ consultation.personnel.fonction }}</div>
+                        <div class="label">
+                            Signature
+                        </div>
+                        <div class="val">
+
+                        </div>
                     </div>
-
-                    <div class="">
-                    <div class="col-lg-4 col-md-4 mb-5 label"style="font-weight:bold;font-size:16px">Signature</div>
-                    <div class="col-lg-8 col-md-8 " style="font-size:16px"></div>
+                    <div class = "">
+                        <div class="row">
+                            <div class="label" >
+                                
+                            </div>
+                            <div class="val">
+                                <i>{{ patient.date_enrgistrement }}</i>
+                            </div>
+                        </div>
                     </div>
-
-                
-
                 </div>
-                <div class = "row d-flex col-12 profile-overview justify-content-center">
-                
-
-                <div class="row col-6">
-                    <div class="col-lg-4 col-md-4 label" style="font-weight:bold;font-size:16px"></div>
-                    <div class="col-lg-8 col-md-8" style="font-size:16px"><i>{{ patient.date_enrgistrement }}</i></div>
-                </div>
-                </div>
-                </div>
-                
                 
             </div>
-            
-
-            </div><!-- End Bordered Tabs -->
-
+                                  
         </div>
-        </div>
+        
+    </div><!-- End Bordered Tabs -->
 
-    </div>
-
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+     
    
-    
 </body>
     
 </html>

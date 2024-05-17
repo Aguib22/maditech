@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- pending_appointments.html -->
+
+<div>
+    <p>Patient: {{ rdv.full_name }}</p>
+    <p>Date: {{ rdv.date_rdv }}</p>
+    <p>Heure: {{ rdv.heure_rdv }}</p>
+    <p>Sujet: {{ rdv.sujet_rdv }}</p>
+    <form method="post" action="{% url 'confirmer' rdv.id %}">
+        {% csrf_token %}
+        <input type="submit" value="Confirmer">
+    </form>
+    <form method="post" action="{% url 'annuler' rdv.id %}">
+        {% csrf_token %}
+        <input type="submit" value="Annuler">
+    </form>
+</div>
+
+
+</body>
+</html>

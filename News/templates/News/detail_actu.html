@@ -23,8 +23,10 @@
 
         <div class="row">
             <div class="col-lg-6" data-aos="fade-right">
-            <img src="{{ new.image.url }}" class="img-fluid" alt="">
-               
+            <img src="{{ new.image.url }}" class="img-fluid w-100" alt="">
+            <div class="text-center justify-content-center m-2 ">
+                <p >publier le :<i > {{ new.date_publication }}</i></p>
+            </div>
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
                 <p>
@@ -38,9 +40,7 @@
 
 
             </div>
-            <div class="text-center justify-content-center m-2 ">
-                <p >publier le :<i > {{ new.date_publication }}</i></p>
-            </div>
+            
             
         </div>
 

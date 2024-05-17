@@ -23,11 +23,17 @@ from Personnel_Service.views import *
 urlpatterns = [
     path('',home,name='home'),
     path('rendez-vous/',make_appointement,name= 'rendez-vous'),
+    path('confirm_rdv/',confirm_rdv,name='confirm_rdv'),
     path('service/',service,name='service'),
     path('apropos/',apropos,name='apropos'),
     path('contact/',contact,name='contact'),
     path('service/<int:id>',detail_service,name="detail_service"),
     path('liste/',liste_patient,name ='liste_patient'),
+    #*****************RDV*******************************
+  
+    path('update-rdv-status/',update_rdv_status, name='update_rdv_status'),
+   
+    
     #***************** personnel *****************************
     path('espace_personnel/',espace_personnel,name="espace_personnel"),
     path('listePatients/',listePatients,name ='listePatient'),

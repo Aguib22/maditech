@@ -30,12 +30,23 @@ class Rendezvous(models.Model):
         ("en attente","en attente"),
         ("annulé","annulé")
     ]
+    
     date_rdv = models.DateField()
     heure_rdv = models.TimeField()
     sujet_rdv = models.TextField(blank= True,null = True)
-    patient = models.ForeignKey(Utilisateur,on_delete = models.CASCADE)
+    full_name = models.CharField(max_length=64)
+    email = models.EmailField()
+    telephone = models.CharField(max_length=9)
     personnel = models.ForeignKey(Personnel,on_delete = models.CASCADE)
     status_rdv = models.CharField(max_length = 32,choices = status, default = "en attente")
+    
+    def confirm_appointment(self):
+        self.status_rdv = "confirmé"
+        self.save()
+        
+    def cancel_appointment(self):
+        self.status_rdv = "annulé"
+        self.save()
 
 
 class TypeAnalyse(models.Model):

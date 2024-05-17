@@ -5,7 +5,7 @@ from .models import Patient,TypeAnalyse,Rendezvous,Examen,Satisfaction,FactureSo
 
 # Register your models here.
 class ReservationAdmin(admin.ModelAdmin):
-    list_display = ('patient','personnel', 'date_rdv','heure_rdv','status_rdv')
+    list_display = ('full_name','email','personnel', 'date_rdv','heure_rdv','status_rdv')
     actions = ['confirmer_reservation','annuler_reservation']
 
     def confirmer_reservation(self, request, queryset):
